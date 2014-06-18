@@ -10,12 +10,26 @@
 
 int main(int argc, const char * argv[])
 {
-
+    
     @autoreleasepool {
         
-        // insert code here...
-        NSLog(@"Hello, World!");
+        int answer = 0;
+        int guess = 0;
+        int turns = 0;
+        answer = arc4random() % 100 + 1;
         
+        while(guess != answer){
+            turns++;
+            NSLog(@"Turn #%i: Enter a number between 1 and 100", turns);
+            scanf("%i", &guess);
+            if (guess > answer) {
+                NSLog(@"Guess was too High!");
+            } else if(guess < answer){
+                NSLog(@"Guess was to Low!");
+            } else {
+                NSLog(@"You are correct!! The answer is %i. It just took you %i turns", answer, turns);
+            }
+        }
     }
     return 0;
 }
